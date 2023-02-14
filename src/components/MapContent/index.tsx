@@ -1,8 +1,10 @@
-import { Marker, Popup, useMap, useMapEvents, LayersControl, LayerGroup, CircleMarker, FeatureGroup } from "react-leaflet"
-import { useEffect } from "react"
+import { Marker, Popup, useMap, useMapEvents, LayersControl, LayerGroup, CircleMarker, FeatureGroup, Over } from "react-leaflet"
+import { useEffect, useState } from "react"
 import Leaflet from "leaflet";
 
 export default function MapContent() {
+  const [toogleHome, setToggleHome] = useState("home");
+
   const mapInstance = useMap()
   useMapEvents({
     popupopen: (e) => console.log(e)
@@ -17,9 +19,19 @@ export default function MapContent() {
   }, [mapInstance])
 
 
-
   return (
     <>
+      <div className="ButtonContainer">
+        <button type="button" disabled={toogleHome === "home"} onClick={() => {
+          mapInstance.flyTo([51.505, -0.09], 15)
+          setToggleHome("home")
+        }}>Ir para Roma</button>
+        <button type="button" disabled={toogleHome === "roma"} onClick={() => {
+          mapInstance.flyTo([-29.6864242,-53.8143911], 15)
+          setToggleHome("roma")
+        }}>Ir para Casa</button>
+      </div>
+
       <Marker
         icon={Leaflet.icon({
           iconUrl: 'http://www.github.com/guiselair.png',
