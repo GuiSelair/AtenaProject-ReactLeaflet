@@ -17,3 +17,15 @@
 .Map {
   border-radius: 16px;
 }
+
+.ButtonContainer {
+  z-index: 1000;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ButtonContainer button + button {
+  margin-left: 8px;
+}
