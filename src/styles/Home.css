@@ -1,0 +1,19 @@
+.Content {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  /* background: red; */
+  height: 800px;
+}
+
+.Home {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Map {
+  border-radius: 16px;
+}
